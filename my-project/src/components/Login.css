@@ -190,7 +190,7 @@ body {
   }
 
   .login-right {
-    display: none;                /*  hide image on mobile */
+    display: none;                /* ✅ hide image on mobile */
   }
 
   .login-left {

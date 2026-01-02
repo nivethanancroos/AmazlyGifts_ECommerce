@@ -1,6 +1,7 @@
 import "./Login.css";
 import giftImage from "../assets/images/gift.jpg";
 
+
 function Login() {
   return (
     <div className="login-page">
