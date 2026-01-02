@@ -1,5 +1,6 @@
 import "./Login.css";
 import giftImage from "../assets/images/gift.jpg";
+import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -22,8 +23,12 @@ function Login() {
             <input type="password" placeholder="At least 8 characters" />
           </div>
 
-          <div className="forgot">
+          {/* <div className="forgot">
             <a href="#">Forgot Password?</a>
+          </div> */}
+
+          <div className="forgot">
+             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
 
           <button className="btn-primary">Sign in</button>
