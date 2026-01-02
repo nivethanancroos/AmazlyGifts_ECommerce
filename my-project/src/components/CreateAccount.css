@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/* PAGE BACKGROUND */
+.create-wrapper {
+  min-height: 100vh;
+  background: #0f2f35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN CARD */
+.create-container {
+  width: 1200px;
+  max-width: 96%;
+  height: 720px;
+  background: white;
+  border-radius: 36px;
+  display: flex;
+  overflow: hidden;
+}
+
+/* LEFT IMAGE GRID */
+.left-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #eee;
+}
+
+.left-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT FORM */
+.right-form {
+  flex: 1;
+  padding: 60px 70px;
+  position: relative;
+}
+
+.lang {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 14px;
+  color: #999;
+}
+
+.right-form h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+/* SOCIAL BUTTONS */
+.social-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.google-icon {
+  color: #db4437;
+  font-weight: bold;
+}
+
+.fb-icon {
+  color: #1877f2;
+  font-weight: bold;
+}
+
+/* OR TEXT */
+.or-text {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* INPUTS */
+.input-group {
+  margin-bottom: 26px;
+}
+
+.input-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #8b4a2f;
+}
+
+/* PASSWORD */
+.password {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.password input {
+  flex: 1;
+  border: none;
+}
+
+.eye {
+  cursor: pointer;
+  font-size: 14px;
+  color: #999;
+}
+
+/* BUTTON */
+.create-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #6d2c3a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* LOGIN LINK */
+.login-link {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.login-link a {
+  color: #3b6cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE STYLES
+   Screen width: tablets & phones
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* MAIN CARD STACKS VERTICALLY */
+  .create-container {
+    flex-direction: column;   /* Stack items */
+    height: auto;             /* Allow height to grow */
+    border-radius: 24px;      /* Slightly smaller radius */
+  }
+
+  /* HIDE LEFT IMAGE GRID ON MOBILE */
+  .left-grid {
+    display: none;            /* Images hidden */
+  }
+
+  /* FORM TAKES FULL WIDTH */
+  .right-form {
+    padding: 32px 24px;       /* Reduce padding for small screens */
+  }
+
+  /* LANGUAGE DROPDOWN ADJUSTMENT */
+  .lang {
+    top: 16px;
+    right: 20px;
+    font-size: 12px;
+  }
+
+  /* TITLE SIZE REDUCED */
+  .right-form h1 {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  /* SOCIAL BUTTONS STACK VERTICALLY */
+  .social-row {
+    flex-direction: column;
+  }
+
+  .social-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* INPUT SPACING REDUCED */
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group input {
+    font-size: 14px;
+  }
+
+  /* BUTTON ADJUSTMENT */
+  .create-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
