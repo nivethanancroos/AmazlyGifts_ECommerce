@@ -14,6 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px
 }
 
 /* MAIN CARD */
@@ -25,6 +26,7 @@ body {
   border-radius: 20px;
   display: flex;
   overflow: hidden;
+   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* LEFT IMAGE GRID */
