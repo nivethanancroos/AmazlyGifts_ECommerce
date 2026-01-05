@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 import { FiSearch, FiTruck, FiShoppingCart, FiUser } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-
+import Logo from "../assets/images/logo.jpg";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -23,14 +23,8 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* Left - Logo */}
-      <div className="nav-left">
-        <img
-          src="/src/assets/images/logo.jpg"
-          alt="Orange Lily"
-          className="nav-logo"
-        />
-      </div>
+   <img src={Logo} alt="Orange Lily"className="nav-logo"  />
+
 
       {/* Center - Search */}
       <div className="nav-center">
