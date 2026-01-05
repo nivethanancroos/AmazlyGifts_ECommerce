@@ -123,3 +123,88 @@
   color: #d62828;
   font-weight: 500;
 }
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    height: auto;
+    padding: 12px 20px;
+    flex-wrap: wrap;
+  }
+
+  /* LEFT */
+  .nav-logo {
+    height: 40px;
+  }
+
+  /* CENTER SEARCH */
+  .nav-center {
+    order: 3;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .search-input {
+    height: 40px;
+    font-size: 13px;
+  }
+
+  /* RIGHT ICONS */
+  .nav-right {
+    gap: 16px;
+  }
+
+  .nav-icon {
+    font-size: 20px;
+  }
+
+  /* PROFILE DROPDOWN */
+  .profile-dropdown {
+    top: 52px;
+    right: 10px;
+    width: 180px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (PHONES)
+========================= */
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 10px 14px;
+  }
+
+  /* SEARCH FULL WIDTH */
+  .nav-center {
+    width: 100%;
+  }
+
+  .search-input {
+    padding: 0 40px;
+  }
+
+  /* ICONS SMALLER */
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .profile-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* CART BADGE ADJUST */
+  .cart-badge {
+    top: -4px;
+    right: -6px;
+    width: 14px;
+    height: 10px;
+    font-size: 9px;
+  }
+}
+
