@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* PAGE */
+.ab-page {
+  background: #fafafa;
+  /* min-height: calc(100vh - 60px); */
+  padding: 40px 80px;
+  
+  
+}
+
+/* CONTAINER */
+.ab-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 50px;
+  height: 550px;
+}
+
+/* =====================
+   SIDEBAR (MATCH PROFILE)
+   ===================== */
+.ab-sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.ab-sidebar h4 {
+  margin-bottom: 6px;
+}
+
+.ab-verified {
+  display: inline-block;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* MENU */
+.ab-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ab-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #7a1c2d;
+  background: none;
+  border: none;
+  font-size: 14px;
+}
+
+.ab-menu button.active {
+  background: #f6f1f2;
+  font-weight: 600;
+}
+
+.ab-menu button svg {
+  font-size: 16px;
+}
+
+/* =====================
+   CONTENT (MATCH PROFILE)
+   ===================== */
+.ab-content {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.ab-content h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ab-content hr {
+  border: none;
+  height: 1px;
+  background: #eeeeee;
+  margin-bottom: 25px;
+}
+
+/* =====================
+   ADDRESS CARD (MATCH FORM STYLE)
+   ===================== */
+.ab-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ab-default {
+  display: inline-block;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+/* =====================
+   ADD BUTTON (MATCH LOGOUT STYLE)
+   ===================== */
+.ab-add-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 8px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #7a1c2d;
+  color: #ffffff;
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  /* 👇 CENTER ICON */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.ab-add-btn:hover {
+  opacity: 0.9;
+}
+
+/* =====================
+   TABLET
+   ===================== */
+@media (max-width: 1024px) {
+  .ab-page {
+    padding: 30px 40px;
+  }
+
+  .ab-container {
+    gap: 20px;
+  }
+
+  .ab-sidebar {
+    width: 220px;
+  }
+
+  .ab-content {
+    padding: 25px 30px;
+  }
+}
+
+/* =====================
+   MOBILE
+   ===================== */
+@media (max-width: 768px) {
+  .ab-page {
+    padding: 20px;
+  }
+
+  .ab-container {
+    flex-direction: column;
+  }
+
+  .ab-sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .ab-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .ab-add-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+/* =====================
+   SMALL MOBILE
+   ===================== */
+@media (max-width: 480px) {
+  .ab-sidebar h4 {
+    font-size: 16px;
+  }
+
+  .ab-verified {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .ab-content h2 {
+    font-size: 17px;
+  }
+}

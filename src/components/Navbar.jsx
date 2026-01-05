@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-   <img src={Logo} alt="Orange Lily"className="nav-logo"  />
+   <img src={Logo} alt="Orange Lily"className="nav-logo"  onClick={() => navigate("/landing")} />
 
 
       {/* Center - Search */}

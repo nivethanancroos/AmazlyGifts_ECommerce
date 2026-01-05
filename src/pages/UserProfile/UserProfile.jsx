@@ -20,14 +20,14 @@ function UserProfile() {
             <FiUser /> My Details
           </div>
 
-          <div className="sidebar-item">
-            <FiMapPin /> Address Book
-          </div>
-        </div>
+          <div className="sidebar-item" onClick={() => navigate("/address-book")}>
+                   <FiMapPin /> Address Book
+             </div>
+             </div>
 
         {/* RIGHT CONTENT */}
         <div className="profile-content">
-          <div className="profile-header">
+          <div className="profile-header ">
             <h2>My Profile</h2>
            <FiEdit
               className="edit-icon"
@@ -35,7 +35,7 @@ function UserProfile() {
             />
           </div>
 
-          <div className="profile-form">
+          <div className="profile-form w-full ">
             <label>Your Full Name</label>
             <input value="Jane Rachel" disabled />
 
@@ -45,18 +45,21 @@ function UserProfile() {
             <label>Your Mobile Number</label>
             <input value="07x xxxxxxx" disabled />
 
-            <label>Your Full Name</label>
-            <input value="Full name will be here." disabled />
+            {/* <label>Your Full Name</label>
+            <input value="Full name will be here." disabled /> */}
 
             <div className="dob-row">
               <label>Date of Birth</label>
-              <span className="change">Change</span>
+              {/* <span className="change">Change</span> */}
             </div>
 
             <input type="date" value="2022-11-25" disabled />
 
-             <div className="logout-wrapper">
-                  <button className="logout-btn">Log Out</button>
+             <div className="logout-wrapper flex justify-end items-end">
+                  <button
+              className="logout-btn"  onClick={() => navigate("/")}  >
+                    Log Out
+                </button>
              </div>
           </div>
         </div>
