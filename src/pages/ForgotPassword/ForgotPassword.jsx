@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./ForgotPassword.css";
-import bgImage from "../assets/images/gift.jpg";
+import bgImage from "../../assets/images/gift.jpg";
 import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {

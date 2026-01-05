@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SetNewPassword.css";
-import bgImage from "../assets/images/gift.jpg";
+import bgImage from "../../assets/images/gift.jpg";
 
 function SetNewPassword() {
   const navigate = useNavigate();

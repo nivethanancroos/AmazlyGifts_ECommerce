@@ -1,5 +1,5 @@
 import "./CreateAccount.css";
-import giftImage from "../assets/images/gift.jpg";
+import giftImage from "../../assets/images/gift.jpg";
 
 function CreateAccount() {
   return (

@@ -1,5 +1,5 @@
 import "./Login.css";
-import giftImage from "../assets/images/gift.jpg";
+import giftImage from "../../assets/images/gift.jpg";
 import { Link } from "react-router-dom";
 
 

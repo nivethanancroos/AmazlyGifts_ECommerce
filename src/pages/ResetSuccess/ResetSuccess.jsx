@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./ResetSuccess.css";
-import bgImage from "../assets/images/gift.jpg";
+import bgImage from "../../assets/images/gift.jpg";
 
 function ResetSuccess() {
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./PasswordResetSuccess.css";
-import bgImage from "../assets/images/gift.jpg";
+import bgImage from "../../assets/images/gift.jpg";
+
 
 function PasswordResetSuccess() {
   const navigate = useNavigate();
