@@ -1,0 +1,74 @@
+/* BACKGROUND */
+.reset-overlay {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* CARD */
+.reset-card {
+  width: 520px;
+  max-width: 95%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* HEADER */
+.reset-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+
+.reset-back,
+.reset-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.reset-content {
+  text-align: center;
+  padding: 30px 40px 50px;
+}
+
+.reset-content h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.reset-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* BUTTON */
+.reset-btn {
+  background: #8b3f46;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #732f35;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .reset-content {
+    padding: 24px;
+  }
+}

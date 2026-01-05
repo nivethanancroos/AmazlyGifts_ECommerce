@@ -1,3 +1,4 @@
+/* RESET */
 * {
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
@@ -6,69 +7,68 @@
 body {
   margin: 0;
   background: #0f2f35;
+  
 }
 
 /* PAGE CENTERING */
 .login-page {
-  min-height: 100vh;
+  min-height: 100vh;          /* Full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  
+  padding: 20px;              /* 🔽 Reduced padding to avoid overflow */
 }
 
 /* CARD */
 .login-card {
-  width: 1200px;
+  width: 1000px;
   max-width: 96%;
-  min-height: 720px;
+  height: 600px;              /* ✅ FIXED HEIGHT (NO SCROLL) */
   background: #ffffff;
   border-radius: 20px;
   display: flex;
-  overflow: hidden;
+  overflow: hidden;           /* Prevent internal scroll */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  
 }
 
-/* LEFT */
+/* LEFT SECTION */
 .login-left {
   flex: 1;
-  padding: 50px 55px;
+  padding: 40px 50px;         /* 🔽 Slightly reduced padding */
   display: flex;
-   flex-direction: column;
-  justify-content: center;
-
+  flex-direction: column;
+  justify-content: center;    /* Center content vertically */
 }
 
+/* TITLES */
 .title {
-  font-size: 32px;
+  font-size: 30px;            /* 🔽 Slightly smaller */
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .subtitle {
   color: #c45757;
-  margin-bottom: 28px;
-  font-size: 15px;
+  margin-bottom: 22px;        /* 🔽 Reduced gap */
+  font-size: 14px;
 }
 
 /* FORM */
 .form-group {
-  margin-bottom: 18px;
+  margin-bottom: 16px;        /* 🔽 Reduced spacing */
 }
 
 .form-group label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #333;
 }
 
 .form-group input {
   width: 100%;
-  padding: 14px;
+  padding: 12px;              /* 🔽 Reduced input height */
   border-radius: 10px;
   border: 1px solid #e0e0e0;
   font-size: 14px;
@@ -81,10 +81,10 @@ body {
   background: #fff;
 }
 
-/* FORGOT */
+/* FORGOT PASSWORD */
 .forgot {
   text-align: right;
-  margin-bottom: 25px;
+  margin-bottom: 18px;        /* 🔽 Reduced */
 }
 
 .forgot a {
@@ -96,12 +96,12 @@ body {
 /* PRIMARY BUTTON */
 .btn-primary {
   width: 100%;
-  padding: 12px 14px;
+  padding: 11px;              /* 🔽 Reduced */
   background: #6d2c3a;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -110,7 +110,7 @@ body {
 .divider {
   display: flex;
   align-items: center;
-  margin: 22px 0;
+  margin: 18px 0;             /* 🔽 Reduced */
 }
 
 .divider span {
@@ -121,44 +121,40 @@ body {
 
 .divider p {
   margin: 0 12px;
-  font-size: 13px;
+  font-size: 12px;
   color: #999;
 }
 
 /* SOCIAL BUTTONS */
 .btn-social {
   width: 100%;
-  padding: 13px;
+  padding: 12px;
   border-radius: 12px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .btn-social img {
-  width: 20px;
+  width: 18px;
 }
 
-.btn-social.google {
-  background: #de8f8b;
-  color: white;
-}
-
+.btn-social.google,
 .btn-social.facebook {
   background: #de8f8b;
   color: white;
 }
 
-/* SIGNUP */
+/* SIGNUP TEXT */
 .signup-text {
-  margin-top: 25px;
-  font-size: 14px;
+  margin-top: 18px;           /* 🔽 Reduced */
+  font-size: 13px;
   text-align: center;
 }
 
@@ -168,7 +164,7 @@ body {
   font-weight: 500;
 }
 
-/* RIGHT */
+/* RIGHT IMAGE */
 .login-right {
   flex: 1;
   background: #f2f2f2;
@@ -180,63 +176,28 @@ body {
 .login-right img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     
+  object-fit: cover;
 }
 
 /* 📱 MOBILE */
 @media (max-width: 768px) {
+
+  body {
+    overflow: auto;           /* ✅ Allow scroll only on mobile */
+  }
+
   .login-card {
-    flex-direction: column;   /* Stack sections */
-    height: auto;             /* Allow natural height */
+    flex-direction: column;
+    height: auto;             /* Natural height on mobile */
     border-radius: 24px;
   }
 
   .login-right {
-    display: none;                /* ✅ hide image on mobile */
+    display: none;            /* Hide image */
   }
 
   .login-left {
-     width: 100%;
-    padding: 32px 24px;  
-  }
-
-  /* LANGUAGE DROPDOWN (if exists) */
-  .lang {
-    top: 16px;
-    right: 20px;
-    font-size: 12px;
-  }
-
-  /* TITLE SIZE REDUCED */
-  .login-left h1 {
-    font-size: 24px;
-    margin-bottom: 28px;
-  }
-
-  /* SOCIAL BUTTONS STACK */
-  .social-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .social-btn {
     width: 100%;
-    font-size: 14px;
+    padding: 32px 24px;
   }
-
-  /* INPUT SPACING */
-  .input-group {
-    margin-bottom: 20px;
-  }
-
-  .input-group input {
-    font-size: 14px;
-  }
-
-  /* LOGIN BUTTON */
-  .login-btn {
-    font-size: 14px;
-    padding: 12px;
-  }
-
 }

@@ -60,8 +60,9 @@ function Verification() {
           ))}
         </div>
 
-        {/* Button */}
-        <button className="otp-btn">Verify Code</button>
+        <button className="otp-btn" onClick={() => navigate("/reset-success")}>
+          Verify Code
+        </button>
 
         {/* Resend */}
         <p className="otp-resend">
