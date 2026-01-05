@@ -1,0 +1,143 @@
+/* PAGE LAYOUT */
+.profile-page {
+  display: flex;
+  gap: 24px;
+  padding: 40px;
+  background: #f8fafc;
+  min-height: calc(100vh - 80px);
+}
+
+/* LEFT SIDEBAR */
+.profile-sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .verified {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 12px;
+    background: #22c55e;
+    color: #ffffff;
+  }
+
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    margin-top: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+    
+
+    svg {
+      font-size: 16px;
+    }
+
+    &:hover {
+      background: #f3f4f6;
+    }
+
+    &.active {
+      background: #fdecec;
+      color: #7a1c2d;
+      font-weight: 600;
+    }
+  }
+}
+
+/* RIGHT CONTENT */
+.profile-content {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* HEADER */
+.profile-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+  }
+}
+
+/* FORM */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .change {
+      font-size: 12px;
+      color: #2563eb;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: #7a1c2d;
+      background: #ffffff;
+    }
+  }
+}
+
+/* SAVE BUTTON */
+.save-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  .save-btn {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: none;
+    background: #7a1c2d;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

@@ -1,96 +1,81 @@
-import React from 'react';
+import { useState, useRef, useEffect } from "react";
+import "./Navbar.css";
+import { FiSearch, FiTruck, FiShoppingCart, FiUser } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+
+function Navbar() {
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+  
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <nav style={styles.nav}>
-      
+    <nav className="navbar">
       {/* Left - Logo */}
-      <div style={styles.logo}>
-        MyLogo
+      <div className="nav-left">
+        <img
+          src="/src/assets/images/logo.jpg"
+          alt="Orange Lily"
+          className="nav-logo"
+        />
       </div>
 
       {/* Center - Search */}
-      <div style={styles.searchBox}>
+      <div className="nav-center">
+        <FiSearch className="search-icon" />
         <input
           type="text"
           placeholder="Search"
-          style={styles.searchInput}
+          className="search-input"
         />
       </div>
 
       {/* Right - Icons */}
-      <div style={styles.icons}>
-        <span style={styles.icon}>🛒</span>
+      <div className="nav-right" ref={dropdownRef}>
+        <FiTruck className="nav-icon" />
 
-        <div style={styles.notification}>
-          <span style={styles.icon}>🔔</span>
-          <span style={styles.badge}>9</span>
+        <div className="cart-wrapper">
+          <FiShoppingCart className="nav-icon" />
+          <span className="cart-badge">3</span>
         </div>
 
-        <span style={styles.icon}>👤</span>
-      </div>
+        {/* PROFILE */}
+        <div
+          className="profile-circle"
+          onClick={() => setOpen(!open)}
+        >
+          <FiUser />
+        </div>
 
+        {/* 🔥 DROPDOWN */}
+        {open && (
+          <div className="profile-dropdown">
+
+            <div className="dropdown-item" onClick={() => { navigate("/account-settings");
+               setOpen(false); // optional: close dropdown
+               }}
+              >Account Settings</div>
+
+
+            <div className="dropdown-item">My wishlist</div>
+            <div className="dropdown-item logout">Logout</div>
+          </div>
+        )}
+      </div>
     </nav>
   );
-};
-
-const styles = {
-  nav: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '12px 30px',
-    border: '2px solid #8b5cf6',
-    backgroundColor: '#fff',
-  },
-
-  logo: {
-    fontSize: '22px',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-  },
-
-  searchBox: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-    margin: '0 40px',
-  },
-
-  searchInput: {
-    width: '100%',
-    maxWidth: '500px',
-    padding: '10px 15px',
-    borderRadius: '6px',
-    border: '1px solid #ccc',
-    outline: 'none',
-  },
-
-  icons: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '20px',
-    fontSize: '20px',
-  },
-
-  icon: {
-    cursor: 'pointer',
-  },
-
-  notification: {
-    position: 'relative',
-  },
-
-  badge: {
-    position: 'absolute',
-    top: '-6px',
-    right: '-10px',
-    backgroundColor: 'red',
-    color: '#fff',
-    fontSize: '12px',
-    padding: '2px 6px',
-    borderRadius: '50%',
-  },
-};
+}
 
 export default Navbar;

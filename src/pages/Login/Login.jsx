@@ -1,9 +1,12 @@
 import "./Login.css";
 import giftImage from "../../assets/images/gift.jpg";
-import { Link } from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
+
 
 
 function Login() {
+
+  const navigate = useNavigate(); 
   return (
     <div className="login-page">
       <div className="login-card">
@@ -31,7 +34,9 @@ function Login() {
              <Link to="/forgot-password">Forgot Password?</Link>
           </div>
 
-          <button className="btn-primary">Sign in</button>
+           <button className="btn-primary"  onClick={() => navigate("/landing")} >
+            Sign in
+          </button>
 
           <div className="divider">
             <span></span>
