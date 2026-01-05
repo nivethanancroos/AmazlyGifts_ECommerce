@@ -112,3 +112,108 @@
   
 
 }
+
+
+/* =========================
+   RESPONSIVE – TABLET
+   ========================= */
+@media (max-width: 1024px) {
+  .profile-page {
+    padding: 30px 40px;
+    gap: 20px;
+  }
+
+  .profile-sidebar {
+    width: 220px;
+  }
+
+  .profile-content {
+    padding: 25px 30px;
+  }
+}
+
+/* =========================
+   RESPONSIVE – MOBILE
+   ========================= */
+@media (max-width: 768px) {
+  .profile-page {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* Sidebar on top */
+  .profile-sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .sidebar-item {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  /* Content below sidebar */
+  .profile-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-header h3 {
+    font-size: 18px;
+  }
+
+  /* Form full width */
+  .profile-form {
+    max-width: 100%;
+  }
+
+  .profile-form label {
+    font-size: 13px;
+  }
+
+  .profile-form input {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  /* DOB row stacked */
+  .dob-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Logout button center */
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+@media (max-width: 480px) {
+  .profile-page {
+    padding: 15px;
+  }
+
+  .profile-sidebar h4 {
+    font-size: 16px;
+  }
+
+  .verified {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .edit-icon {
+    align-self: flex-end;
+  }
+}
