@@ -69,13 +69,13 @@ function OrderDetails() {
     <span data-label="Total">Rs. 500</span>
   </div>
 
-  <div className="od-row">
+     <div className="od-row">
     <span data-label="Item">Delivery Fee</span>
     <span data-label="Price">Rs. 500</span>
     <span data-label="Qty">1</span>
-    <span data-label="Total">Rs. 500</span>
-  </div>
-</div>
+      <span data-label="Total">Rs. 500</span>
+     </div>
+    </div>
 
           {/* ACTIONS */}
           <div className="od-actions">
