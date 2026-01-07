@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* PAGE */
+.ot-page {
+  background: #fafafa;
+  min-height: calc(100vh - 60px);
+  padding: 40px 80px;
+  
+}
+
+/* CONTAINER */
+.ot-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* TITLE */
+.ot-title {
+  background: #f4f1f2;
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+   font-weight: 600; 
+}
+
+/* FILTERS */
+.ot-filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.ot-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  flex: 1;
+}
+
+.ot-input input,
+.ot-input select {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: none;
+}
+
+.ot-input.search {
+  flex: 2;
+}
+
+/* TABLE */
+.ot-table {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.ot-head,
+.ot-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1.3fr 1.1fr 1.4fr 1fr 0.8fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.ot-head {
+  font-weight: 600;
+  color: #374151;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.ot-row {
+  padding: 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.ot-row:last-child {
+  border-bottom: none;
+}
+
+/* LINKS */
+.link {
+  color: #1d4ed8;
+  cursor: pointer;
+}
+
+/* STATUS */
+.status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.processing {
+  background: #fef08a;
+  color: #92400e;
+}
+
+.completed {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+/* VIEW BUTTON */
+.view-btn {
+  background: #7a1c2d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  opacity: 0.9;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ot-page {
+    padding: 20px;
+  }
+
+  .ot-filters {
+    flex-direction: column;
+  }
+
+  .ot-head {
+    display: none;
+  }
+
+  .ot-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    background: #fafafa;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+}

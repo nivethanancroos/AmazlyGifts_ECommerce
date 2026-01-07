@@ -1,0 +1,315 @@
+/* PAGE */
+.od-page {
+  background: #fafafa;
+  min-height: calc(100vh - 60px);
+  padding: 40px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+/* MAIN CONTAINER */
+.od-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ORDER HEADER */
+.od-header {
+  background: #f6efef;
+  border-radius: 10px;
+  padding: 24px 30px;
+}
+
+.od-header h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.od-header p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ORDER STATUS */
+.od-status {
+  background: #f6efef;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  background : transparent;
+}
+
+.step span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #cfcfcf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.step p {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.step small {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* COMPLETED */
+.step.completed span {
+  background: #7b2d2d;
+  border-color: #7b2d2d;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* ACTIVE */
+.step.active span {
+  border-color: #7b2d2d;
+}
+
+/* LINES */
+.line {
+  flex: 1;
+  height: 4px;
+  background: #dcdcdc;
+  margin: 0 10px;
+  border-radius: 2px;
+}
+
+.line.active {
+  background: #7b2d2d;
+}
+
+/* TABLE */
+.od-table {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.od-row {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  padding: 14px 20px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.od-row.head {
+  background: #dedede;
+  font-weight: 600;
+}
+
+.od-row:not(.head):nth-child(even) {
+  background: #f4f4f4;
+}
+
+/* ACTION BUTTONS */
+.od-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoice-btn,
+.back-btn {
+  background: #7b2d2d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.invoice-btn:hover,
+.back-btn:hover {
+  background: #5f2020;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .od-page {
+    padding: 20px;
+  }
+
+  .od-status {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .line {
+    width: 4px;
+    height: 40px;
+    margin: 10px 0;
+  }
+
+  .od-row {
+    grid-template-columns: 2fr 1fr;
+    row-gap: 6px;
+  }
+
+  .od-row span:nth-child(3),
+  .od-row span:nth-child(4) {
+    text-align: right;
+  }
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE UPGRADE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* PAGE */
+  .od-page {
+    padding: 16px;
+  }
+
+  .od-container {
+    gap: 20px;
+  }
+
+  /* HEADER */
+  .od-header {
+    padding: 18px;
+  }
+
+  .od-header h3 {
+    font-size: 18px;
+  }
+
+  .od-header p {
+    font-size: 13px;
+  }
+
+  /* =====================
+     STATUS STEPPER
+  ===================== */
+  .od-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .step {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .step span {
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .step p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .step small {
+    display: block;
+    font-size: 12px;
+  }
+
+  .line {
+    width: 2px;
+    height: 30px;
+    margin-left: 15px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+  }
+
+  /* =====================
+     TABLE → CARD VIEW
+  ===================== */
+  .od-table {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .od-row {
+    grid-template-columns: 1fr;
+    background: #fff;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+
+  .od-row.head {
+    display: none;
+  }
+
+  .od-row span {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+  }
+
+  .od-row span::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+  }
+
+  /* =====================
+     ACTION BUTTONS
+  ===================== */
+  .od-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .invoice-btn,
+  .back-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 420px) {
+  .od-header h3 {
+    font-size: 16px;
+  }
+
+  .step p {
+    font-size: 13px;
+  }
+
+  .invoice-btn,
+  .back-btn {
+    font-size: 14px;
+  }
+}

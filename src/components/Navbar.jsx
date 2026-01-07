@@ -22,8 +22,8 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar">
-   <img src={Logo} alt="Orange Lily"className="nav-logo"  onClick={() => navigate("/landing")} />
+    <nav className="navbar ">
+   <img src={Logo} alt="Orange Lily"className="nav-logo "  onClick={() => navigate("/landing")} />
 
 
       {/* Center - Search */}
@@ -38,7 +38,7 @@ function Navbar() {
 
       {/* Right - Icons */}
       <div className="nav-right" ref={dropdownRef}>
-        <FiTruck className="nav-icon" />
+        <FiTruck className="nav-icon clickable" onClick={() => navigate("/order-tracking")} />
 
         <div className="cart-wrapper">
           <FiShoppingCart className="nav-icon" />

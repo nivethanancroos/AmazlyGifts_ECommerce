@@ -10,6 +10,8 @@ import Landing from "../pages/Landing/Landing";
 import UserProfile from "../pages/UserProfile/UserProfile";
 import ProfileEdit from "../pages/UserProfile/ProfileEdit";
 import AddressBook from "../pages/AddressBook/AddressBook.jsx";
+import OrderTracking from "../pages/OrderTracking/OrderTracking";
+import OrderDetails from "../pages/OrderDetails/OrderDetails";
 
 function AppRoutes() {
   return (
@@ -26,6 +28,8 @@ function AppRoutes() {
       <Route path="/account-settings" element={<UserProfile />} />
       <Route path="/account-settings/profile-edit" element={<ProfileEdit />} />
       <Route path="/address-book" element={<AddressBook />} />
+      <Route path="/order-tracking" element={<OrderTracking />} />
+      <Route path="/order-details/:orderId" element={<OrderDetails />} />
 
     </Routes>
   );
