@@ -25,13 +25,12 @@ function UserProfile() {
       <div className="profile-page">
         {/* LEFT SIDEBAR */}
         <div className="profile-sidebar">
-
           {/* PROFILE IMAGE */}
           <div className="profile-avatar">
             <label htmlFor="profile-upload">
               <img src={profileImage} alt="Profile" />
-              {/* <span className="change-photo">Change</span> */}
             </label>
+
             <input
               type="file"
               id="profile-upload"
@@ -62,9 +61,7 @@ function UserProfile() {
             <h2>My Profile</h2>
             <FiEdit
               className="edit-icon"
-              onClick={() =>
-                navigate("/account-settings/profile-edit")
-              }
+              onClick={() => navigate("/account-settings/profile-edit")}
             />
           </div>
 
@@ -85,10 +82,7 @@ function UserProfile() {
             <input type="date" value="2022-11-25" disabled />
 
             <div className="logout-wrapper flex justify-end">
-              <button
-                className="logout-btn"
-                onClick={() => navigate("/")}
-              >
+              <button className="logout-btn" onClick={() => navigate("/")}>
                 Log Out
               </button>
             </div>

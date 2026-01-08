@@ -34,8 +34,7 @@ function OrderTracking() {
           {/* FILTER BAR */}
           <div className="ot-filters">
             <div className="ot-input">
-              <FiCalendar />
-              <input type="text" placeholder="mm/dd/yyyy" />
+              <input className="calender" type="date" placeholder="mm/dd/yyyy" />
             </div>
 
             <div className="ot-input">
@@ -65,8 +64,8 @@ function OrderTracking() {
             </div>
 
             {orders.map((order) => (
-              <div className="ot-row" key={order.id}>
-                <span className="link">{order.id}</span>
+              <div className="ot-row" key={order.orderId}>
+                <span className="link">{order.orderId}</span>
                 <span>{order.product}</span>
                 <span>{order.date}</span>
                 <span>{order.location}</span>
@@ -85,7 +84,7 @@ function OrderTracking() {
                 <button
                   className="view-btn"
                   onClick={() =>
-                    navigate(`/order-details/${order.id}`)
+                    navigate(`/order-details/${order.orderId}`)
                   }
                 >
                   View

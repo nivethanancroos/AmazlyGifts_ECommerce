@@ -132,7 +132,9 @@
 .profile-avatar {
   display: flex;
   justify-content: left;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  flex-direction: column;   /* ⬅ stack image + text vertically */
+  align-items: flex-start;  /* ⬅ align text under avatar (left) */
 }
 
 .profile-avatar label {
@@ -146,6 +148,19 @@
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #f3f4f6;
+}
+
+.change-photo-text {
+  margin-top: 8px;
+  font-size: 10px;
+  color: #2563eb; /* blue */
+  cursor: pointer;
+  text-align: center;
+}
+
+/* make text clickable */
+.change-photo-text:hover {
+  text-decoration: underline;
 }
 
 
@@ -175,36 +190,51 @@
   .profile-page {
     flex-direction: column;
     padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    
   }
 
   /* Sidebar on top */
   .profile-sidebar {
     width: 100%;
     padding: 20px;
+    
+    
   }
 
   .sidebar-item {
     padding: 14px;
     font-size: 14px;
+    
   }
 
   /* Content below sidebar */
   .profile-content {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
   }
 
   .profile-header h3 {
     font-size: 18px;
   }
 
+  .profile-header{
+    margin: 0;
+  }
+
   /* Form full width */
   .profile-form {
     max-width: 100%;
+    margin-top: 6px;
+    max-width: none;
+    padding: 0;
   }
 
   .profile-form label {
     font-size: 13px;
+    margin-top: 6px;
   }
 
   .profile-form input {
@@ -212,44 +242,27 @@
     font-size: 14px;
   }
 
+.profile-sidebar,
+  .profile-content {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
   /* DOB row stacked */
   .dob-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+    margin-top: 6px;
   }
 
   /* Logout button center */
   .logout-btn {
     width: 100%;
     text-align: center;
+    margin-top: 10px;
   }
 }
 
-/* =========================
-   SMALL MOBILE
-   ========================= */
-@media (max-width: 480px) {
-  .profile-page {
-    padding: 15px;
-  }
-
-  .profile-sidebar h4 {
-    font-size: 16px;
-  }
-
-  .verified {
-    font-size: 11px;
-    padding: 3px 8px;
-  }
-
-  .profile-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .edit-icon {
-    align-self: flex-end;
-  }
-}

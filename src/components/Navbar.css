@@ -179,6 +179,7 @@
 
   .navbar {
     padding: 10px 14px;
+    height: fit-content;
   }
 
   /* SEARCH FULL WIDTH */
