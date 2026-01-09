@@ -19,6 +19,7 @@
 .nav-logo {
   height: 50px;
   object-fit: contain;
+  cursor: pointer;
 }
 
 /* CENTER SEARCH */
@@ -94,7 +95,7 @@
 /* PROFILE DROPDOWN CONTAINER */
 .profile-dropdown {
   position: absolute;
-  top: 58px;              /* below navbar */
+  top: 58px; /* below navbar */
   right: 0;
   width: 200px;
   background: #eaeaea;
@@ -128,7 +129,6 @@
    MOBILE RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-
   /* NAVBAR */
   .navbar {
     height: auto;
@@ -140,7 +140,6 @@
   .nav-logo {
     height: 40px;
     cursor: pointer;
-    
   }
 
   /* CENTER SEARCH */
@@ -176,7 +175,6 @@
    SMALL MOBILE (PHONES)
 ========================= */
 @media (max-width: 480px) {
-
   .navbar {
     padding: 10px 14px;
     height: fit-content;
@@ -210,4 +208,3 @@
     font-size: 9px;
   }
 }
-

@@ -1,14 +1,14 @@
 import { FiSearch, FiFilter, FiCalendar } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";   // ✅ ADD THIS
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "./OrderTracking.css";
 
 function OrderTracking() {
-  const navigate = useNavigate();   // ✅ ADD THIS
+  const navigate = useNavigate();
 
   const orders = [
     {
-    orderId: "CR30032123441",
+      orderId: "CR30032123441",
       product: "Square Frame",
       date: "12-12-2025",
       location: "Colombo12",
@@ -19,6 +19,13 @@ function OrderTracking() {
       product: "Memorial Frame",
       date: "18-12-2025",
       location: "Jaffna12",
+      status: "Completed",
+    },
+    {
+      orderId: "CR3003212435",
+      product: "Heart Frame",
+      date: "19-12-2025",
+      location: "Trinco",
       status: "Completed",
     },
   ];
@@ -34,7 +41,11 @@ function OrderTracking() {
           {/* FILTER BAR */}
           <div className="ot-filters">
             <div className="ot-input">
-              <input className="calender" type="date" placeholder="mm/dd/yyyy" />
+              <input
+                className="calender"
+                type="date"
+                placeholder="mm/dd/yyyy"
+              />
             </div>
 
             <div className="ot-input">
@@ -65,16 +76,15 @@ function OrderTracking() {
 
             {orders.map((order) => (
               <div className="ot-row" key={order.orderId}>
-                <span className="link">{order.orderId}</span>
-                <span>{order.product}</span>
-                <span>{order.date}</span>
-                <span>{order.location}</span>
+                <span className="ot-id link">{order.orderId}</span>
+                <span className="ot-product">{order.product}</span>
+                <span className="ot-date">{order.date}</span>
+                <span className="ot-location">{order.location}</span>
+
                 <span>
                   <span
                     className={`status ${
-                      order.status === "Completed"
-                        ? "completed"
-                        : "processing"
+                      order.status === "Completed" ? "completed" : "processing"
                     }`}
                   >
                     {order.status}
@@ -83,9 +93,7 @@ function OrderTracking() {
 
                 <button
                   className="view-btn"
-                  onClick={() =>
-                    navigate(`/order-details/${order.orderId}`)
-                  }
+                  onClick={() => navigate(`/order-details/${order.orderId}`)}
                 >
                   View
                 </button>

@@ -8,7 +8,6 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
-  
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -23,22 +22,25 @@ function Navbar() {
 
   return (
     <nav className="navbar ">
-   <img src={Logo} alt="Orange Lily"className="nav-logo "  onClick={() => navigate("/landing")} />
-
+      <img
+        src={Logo}
+        alt="Orange Lily"
+        className="nav-logo "
+        onClick={() => navigate("/landing")}
+      />
 
       {/* Center - Search */}
       <div className="nav-center">
         <FiSearch className="search-icon" />
-        <input
-          type="text"
-          placeholder="Search"
-          className="search-input"
-        />
+        <input type="text" placeholder="Search" className="search-input" />
       </div>
 
       {/* Right - Icons */}
       <div className="nav-right" ref={dropdownRef}>
-        <FiTruck className="nav-icon clickable" onClick={() => navigate("/order-tracking")} />
+        <FiTruck
+          className="nav-icon clickable"
+          onClick={() => navigate("/order-tracking")}
+        />
 
         <div className="cart-wrapper">
           <FiShoppingCart className="nav-icon" />
@@ -46,25 +48,30 @@ function Navbar() {
         </div>
 
         {/* PROFILE */}
-        <div
-          className="profile-circle"
-          onClick={() => setOpen(!open)}
-        >
+        <div className="profile-circle" onClick={() => setOpen(!open)}>
           <FiUser />
         </div>
 
         {/* 🔥 DROPDOWN */}
         {open && (
           <div className="profile-dropdown">
-
-            <div className="dropdown-item" onClick={() => { navigate("/account-settings");
-               setOpen(false); // optional: close dropdown
-               }}
-              >Account Settings</div>
-
+            <div
+              className="dropdown-item"
+              onClick={() => {
+                navigate("/account-settings");
+                setOpen(false); // optional: close dropdown
+              }}
+            >
+              Account Settings
+            </div>
 
             <div className="dropdown-item">My wishlist</div>
-            <div className="dropdown-item logout">Logout</div>
+            <div
+              className="dropdown-item logout "
+              onClick={() => navigate("/")}
+            >
+              Logout
+            </div>
           </div>
         )}
       </div>

@@ -52,7 +52,7 @@
   min-width: 120px;
   text-align: center;
   position: relative;
-  background : transparent;
+  background: transparent;
 }
 
 .step span {
@@ -178,13 +178,11 @@
   }
 }
 
-
 /* =========================
    MOBILE RESPONSIVE UPGRADE
 ========================= */
 
 @media (max-width: 768px) {
-
   /* PAGE */
   .od-page {
     padding: 16px;
@@ -262,7 +260,7 @@
     margin-bottom: 12px;
     border-radius: 10px;
     padding: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   }
 
   .od-row.head {
@@ -295,21 +293,5 @@
     width: 100%;
     padding: 12px;
     font-size: 15px;
-  }
-}
-
-/* EXTRA SMALL PHONES */
-@media (max-width: 420px) {
-  .od-header h3 {
-    font-size: 16px;
-  }
-
-  .step p {
-    font-size: 13px;
-  }
-
-  .invoice-btn,
-  .back-btn {
-    font-size: 14px;
   }
 }

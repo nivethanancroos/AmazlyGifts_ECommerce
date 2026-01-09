@@ -2,21 +2,11 @@ import "./UserProfile.css";
 import { FiEdit, FiUser, FiMapPin } from "react-icons/fi";
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 function UserProfile() {
   const navigate = useNavigate();
 
-  const [profileImage, setProfileImage] = useState(
-    "https://i.pravatar.cc/150?img=47" // default avatar
-  );
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setProfileImage(URL.createObjectURL(file));
-    }
-  };
+  const profileImage = "https://i.pravatar.cc/150?img=47"; // static avatar (view only)
 
   return (
     <>
@@ -25,19 +15,9 @@ function UserProfile() {
       <div className="profile-page">
         {/* LEFT SIDEBAR */}
         <div className="profile-sidebar">
-          {/* PROFILE IMAGE */}
+          {/* PROFILE IMAGE (VIEW ONLY) */}
           <div className="profile-avatar">
-            <label htmlFor="profile-upload">
-              <img src={profileImage} alt="Profile" />
-            </label>
-
-            <input
-              type="file"
-              id="profile-upload"
-              accept="image/*"
-              onChange={handleImageChange}
-              hidden
-            />
+            <img src={profileImage} alt="Profile" />
           </div>
 
           <h4>Hello, Jane</h4>
@@ -75,13 +55,10 @@ function UserProfile() {
             <label>Your Mobile Number</label>
             <input value="07x xxxxxxx" disabled />
 
-            <div className="dob-row">
-              <label>Date of Birth</label>
-            </div>
-
+            <label>Date of Birth</label>
             <input type="date" value="2022-11-25" disabled />
 
-            <div className="logout-wrapper flex justify-end">
+            <div className="logout-wrapper">
               <button className="logout-btn" onClick={() => navigate("/")}>
                 Log Out
               </button>

@@ -8,7 +8,6 @@
   background: #fafafa;
   min-height: calc(100vh - 60px);
   padding: 40px 80px;
-  
 }
 
 /* CONTAINER */
@@ -25,7 +24,7 @@
   text-align: center;
   margin-bottom: 30px;
   font-size: 18px;
-   font-weight: 600; 
+  font-weight: 600;
 }
 
 /* FILTERS */
@@ -34,8 +33,6 @@
   gap: 20px;
   margin-bottom: 25px;
 }
-
-
 
 .ot-input {
   display: flex;
@@ -66,7 +63,7 @@
   background: #ffffff;
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .ot-head,
@@ -150,11 +147,90 @@
   }
 
   .ot-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    background: #fafafa;
-    padding: 14px;
-    border-radius: 12px;
-    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 1fr;
+    gap: 14px;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 16px;
+    align-items: center;
+  }
+
+  /* COMMON CELL STYLE */
+  .ot-id,
+  .ot-product,
+  .ot-date,
+  .ot-location {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* LABELS */
+  .ot-id::before {
+    content: "Tracking ID";
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+  }
+
+  .ot-product::before {
+    content: "Product Name";
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+  }
+
+  .ot-date::before {
+    content: "Date";
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+  }
+
+  .ot-location::before {
+    content: "Location";
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+  }
+
+  /* POSITIONING (THIS FIXES ALIGNMENT) */
+  .ot-id {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ot-product {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .status {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .ot-date {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ot-location {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .view-btn {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+    width: 120px;
+    padding: 10px 14px;
+    border-radius: 10px;
   }
 }
