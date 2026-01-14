@@ -12,25 +12,28 @@ import ProfileEdit from "../pages/UserProfile/ProfileEdit";
 import AddressBook from "../pages/AddressBook/AddressBook.jsx";
 import OrderTracking from "../pages/OrderTracking/OrderTracking";
 import OrderDetails from "../pages/OrderDetails/OrderDetails";
+import Products from "../pages/Products/Products";
 
 function AppRoutes() {
   return (
     <Routes>
-
       <Route path="/" element={<Login />} />
       <Route path="/create-account" element={<CreateAccount />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/verify-otp" element={<Verification />} />
       <Route path="/new-password" element={<SetNewPassword />} />
       <Route path="/reset-success" element={<ResetSuccess />} />
-      <Route path="/password-reset-success" element={<PasswordResetSuccess />} />
+      <Route
+        path="/password-reset-success"
+        element={<PasswordResetSuccess />}
+      />
       <Route path="/landing" element={<Landing />} />
       <Route path="/account-settings" element={<UserProfile />} />
       <Route path="/account-settings/profile-edit" element={<ProfileEdit />} />
       <Route path="/address-book" element={<AddressBook />} />
       <Route path="/order-tracking" element={<OrderTracking />} />
       <Route path="/order-details/:orderId" element={<OrderDetails />} />
-
+      <Route path="/products" element={<Products />} />
     </Routes>
   );
 }
