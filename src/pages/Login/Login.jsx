@@ -6,17 +6,15 @@ import { useState } from "react";
 function Login() {
   const navigate = useNavigate();
 
-  // =======================
   // STATE
-  // =======================
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // =======================
   // HANDLERS
-  // =======================
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
