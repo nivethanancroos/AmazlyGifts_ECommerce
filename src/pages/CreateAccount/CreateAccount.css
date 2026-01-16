@@ -10,7 +10,7 @@ body {
 /* PAGE BACKGROUND */
 .create-wrapper {
   min-height: 100vh;
-  background: #0f2f35;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ body {
   border-radius: 20px;
   display: flex;
   overflow: hidden;
-   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* LEFT IMAGE GRID */
@@ -184,22 +184,21 @@ body {
    Screen width: tablets & phones
    ========================================= */
 @media (max-width: 768px) {
-
   /* MAIN CARD STACKS VERTICALLY */
   .create-container {
-    flex-direction: column;   /* Stack items */
-    height: auto;             /* Allow height to grow */
-    border-radius: 24px;      /* Slightly smaller radius */
+    flex-direction: column; /* Stack items */
+    height: auto; /* Allow height to grow */
+    border-radius: 24px; /* Slightly smaller radius */
   }
 
   /* HIDE LEFT IMAGE GRID ON MOBILE */
   .left-grid {
-    display: none;            /* Images hidden */
+    display: none; /* Images hidden */
   }
 
   /* FORM TAKES FULL WIDTH */
   .right-form {
-    padding: 32px 24px;       /* Reduce padding for small screens */
+    padding: 32px 24px; /* Reduce padding for small screens */
   }
 
   /* LANGUAGE DROPDOWN ADJUSTMENT */
@@ -240,4 +239,3 @@ body {
     padding: 12px;
   }
 }
-
