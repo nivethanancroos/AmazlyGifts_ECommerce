@@ -49,11 +49,11 @@ function ProductCard() {
 
         {/* ACTION BUTTONS */}
         <div className="flex gap-3 mt-4">
-          <button className="flex-1 bg-[#8B3A3A] hover:bg-[#742F2F] text-white text-sm py-2 rounded-full transition">
+          <button className="flex-1 bg-[#8B3A3A] hover:bg-[#742F2F] text-white text-sm py-2 rounded-full transition cursor-pointer">
             Add To Cart
           </button>
 
-          <button className="flex-1 border border-gray-300 hover:bg-gray-50 text-sm py-2 rounded-full transition">
+          <button className="flex-1 border border-gray-300 hover:bg-gray-50 text-sm py-2 rounded-full transition cursor-pointer">
             Add Shortlist
           </button>
         </div>
