@@ -13,6 +13,7 @@ import AddressBook from "../pages/AddressBook/AddressBook.jsx";
 import OrderTracking from "../pages/OrderTracking/OrderTracking";
 import OrderDetails from "../pages/OrderDetails/OrderDetails";
 import Products from "../pages/Products/Products";
+import ProductDetails from "../pages/Products/ProductDetails";
 
 function AppRoutes() {
   return (
@@ -34,6 +35,7 @@ function AppRoutes() {
       <Route path="/order-tracking" element={<OrderTracking />} />
       <Route path="/order-details/:orderId" element={<OrderDetails />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/products/:id" element={<ProductDetails />} />
     </Routes>
   );
 }
