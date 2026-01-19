@@ -43,10 +43,7 @@ function Navbar() {
         />
 
         <div className="cart-wrapper">
-          <FiShoppingCart
-            className="nav-icon"
-            onClick={() => navigate("/Products")}
-          />
+          <FiShoppingCart className="nav-icon" onClick={() => navigate("")} />
           {/* <span className="cart-badge">3</span> */}
         </div>
 
