@@ -2,6 +2,7 @@ import "./Login.css";
 import giftImage from "../../assets/images/gift.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import bgImage from "../../assets/images/gift.jpg";
 
 function Login() {
   const navigate = useNavigate();
@@ -41,7 +42,10 @@ function Login() {
   };
 
   return (
-    <div className="login-page">
+    <div
+      className="login-page success-overlay"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="login-card">
         {/* LEFT SECTION */}
         <div className="login-left">

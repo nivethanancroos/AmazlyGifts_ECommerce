@@ -6,15 +6,16 @@ import {
   Package,
   UserPlus,
   CheckCircle,
+  Menu, // Added Menu icon
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
-export default function Topbar() {
+export default function Topbar({ onMenuClick }) {
+  // Destructure onMenuClick prop
   const [showNotifications, setShowNotifications] = useState(false);
   const notificationRef = useRef(null);
 
-  // Close notification when clicking outside
   useEffect(() => {
     function handleClickOutside(e) {
       if (
@@ -29,19 +30,31 @@ export default function Topbar() {
   }, []);
 
   return (
-    <header className="bg-white border-b px-6 py-4 flex items-center justify-between">
-      {/* Left */}
-      <div>
-        <h2 className="text-xl font-semibold text-gray-800">Admin Dashboard</h2>
-        <p className="text-sm text-gray-500">
-          Manage orders, products & settings
-        </p>
+    <header className="bg-white border-b px-4 md:px-6 py-4 flex items-center justify-between">
+      {/* Left: Mobile Menu + Title */}
+      <div className="flex items-center gap-3">
+        {/* Mobile Menu Toggle - Only visible on small screens */}
+        <button
+          onClick={onMenuClick}
+          className="p-2 -ml-2 rounded-lg hover:bg-gray-100 lg:hidden"
+        >
+          <Menu size={24} className="text-gray-600" />
+        </button>
+
+        <div>
+          <h2 className="text-lg md:text-xl font-semibold text-gray-800 leading-tight">
+            Admin Dashboard
+          </h2>
+          <p className="text-xs md:text-sm text-gray-500 hidden xs:block">
+            Manage orders, products & settings
+          </p>
+        </div>
       </div>
 
       {/* Right */}
-      <div className="flex items-center gap-6">
-        {/* Search */}
-        <div className="relative hidden md:block">
+      <div className="flex items-center gap-2 md:gap-6">
+        {/* Search - Hidden on mobile/tablet, shown on md+ */}
+        <div className="relative hidden lg:block">
           <Search
             size={18}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
@@ -59,24 +72,23 @@ export default function Topbar() {
             onClick={() => setShowNotifications(!showNotifications)}
             className="relative p-2 rounded-lg hover:bg-gray-100"
           >
-            <Bell className="text-gray-600 hover:text-blue-600" />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 rounded-full">
+            <Bell size={20} className="text-gray-600 hover:text-blue-600" />
+            <span className="absolute top-1 right-1 bg-red-500 text-white text-[10px] px-1.5 rounded-full">
               3
             </span>
           </button>
 
-          {/* Notification Dropdown */}
+          {/* Notification Dropdown - Responsive width */}
           {showNotifications && (
-            <div className="absolute right-0 mt-3 w-80 bg-white border rounded-xl shadow-lg z-50">
-              {/* Header */}
+            <div className="absolute right-[-60px] md:right-0 mt-3 w-[280px] md:w-80 bg-white border rounded-xl shadow-lg z-50">
               <div className="px-4 py-3 border-b">
                 <h4 className="font-semibold text-sm">Notifications</h4>
               </div>
 
-              {/* List */}
               <div className="max-h-72 overflow-y-auto">
+                {/* Notification Items remain same */}
                 <div className="flex gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-                  <div className="bg-blue-100 text-blue-600 p-2 rounded-full">
+                  <div className="bg-blue-100 text-blue-600 p-2 rounded-full h-fit">
                     <Package size={16} />
                   </div>
                   <div>
@@ -88,7 +100,7 @@ export default function Topbar() {
                 </div>
 
                 <div className="flex gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-                  <div className="bg-green-100 text-green-600 p-2 rounded-full">
+                  <div className="bg-green-100 text-green-600 p-2 rounded-full h-fit">
                     <CheckCircle size={16} />
                   </div>
                   <div>
@@ -100,7 +112,7 @@ export default function Topbar() {
                 </div>
 
                 <div className="flex gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer">
-                  <div className="bg-purple-100 text-purple-600 p-2 rounded-full">
+                  <div className="bg-purple-100 text-purple-600 p-2 rounded-full h-fit">
                     <UserPlus size={16} />
                   </div>
                   <div>
@@ -112,7 +124,6 @@ export default function Topbar() {
                 </div>
               </div>
 
-              {/* Footer */}
               <div className="border-t px-4 py-3 text-center">
                 <button className="text-sm text-blue-600 hover:underline">
                   View all notifications
@@ -123,20 +134,21 @@ export default function Topbar() {
         </div>
 
         {/* Admin Profile */}
-        <div className="flex items-center gap-3 border-l pl-6">
-          <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold">
+        <div className="flex items-center gap-2 md:gap-3 border-l pl-3 md:pl-6">
+          <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold text-sm">
             A
           </div>
 
-          <div className="hidden sm:block">
+          {/* Hidden on small mobile */}
+          <div className="hidden xl:block">
             <p className="text-sm font-medium">Admin</p>
             <p className="text-xs text-gray-500">admin@amazly.com</p>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-0 md:gap-2">
             <Link to="/admin/settings">
               <button className="p-2 rounded-lg hover:bg-gray-100">
-                <Settings size={18} />
+                <Settings size={18} className="text-gray-600" />
               </button>
             </Link>
 

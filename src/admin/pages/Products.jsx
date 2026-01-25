@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AdminLayout from "../AdminLayout";
 import DeleteConfirmModal from "../components/DeleteConfirmModal";
-import { Plus, Trash2, Image } from "lucide-react";
+import { Plus, Trash2, Image, Pencil, X } from "lucide-react";
 
 export default function Products() {
   const [products, setProducts] = useState([
@@ -14,13 +14,14 @@ export default function Products() {
       size: "8 × 12 inches",
       material: "Wood",
       customizable: true,
-      image: "",
+      images: [],
       description: "Premium wooden frame for preserving memories.",
     },
   ]);
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const [editTarget, setEditTarget] = useState(null);
 
   const [form, setForm] = useState({
     name: "",
@@ -30,29 +31,82 @@ export default function Products() {
     size: "",
     material: "",
     customizable: false,
-    image: "",
+    images: [],
     description: "",
   });
 
+  /* =====================
+     IMAGE UPLOAD (MULTIPLE)
+  ====================== */
   const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    setForm({ ...form, image: URL.createObjectURL(file) });
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+
+    const newImages = files.map((file) => URL.createObjectURL(file));
+
+    setForm({
+      ...form,
+      images: [...form.images, ...newImages],
+    });
   };
 
-  const handleAddProduct = () => {
+  /* =====================
+     REMOVE SINGLE IMAGE
+  ====================== */
+  const removeImage = (index) => {
+    setForm({
+      ...form,
+      images: form.images.filter((_, i) => i !== index),
+    });
+  };
+
+  /* =====================
+     ADD / UPDATE PRODUCT
+  ====================== */
+  const handleAddOrUpdateProduct = () => {
     if (!form.name || !form.price || !form.category) return;
 
-    setProducts([
-      ...products,
-      {
-        id: Date.now(),
-        ...form,
-        price: Number(form.price),
-        stock: Number(form.stock),
-      },
-    ]);
+    if (editTarget) {
+      setProducts(
+        products.map((p) =>
+          p.id === editTarget
+            ? {
+                ...p,
+                ...form,
+                price: Number(form.price),
+                stock: Number(form.stock),
+              }
+            : p,
+        ),
+      );
+    } else {
+      setProducts([
+        ...products,
+        {
+          id: Date.now(),
+          ...form,
+          price: Number(form.price),
+          stock: Number(form.stock),
+        },
+      ]);
+    }
 
+    resetForm();
+  };
+
+  /* =====================
+     EDIT PRODUCT
+  ====================== */
+  const handleEdit = (product) => {
+    setForm(product);
+    setEditTarget(product.id);
+    setShowAddForm(true);
+  };
+
+  /* =====================
+     RESET FORM
+  ====================== */
+  const resetForm = () => {
     setForm({
       name: "",
       price: "",
@@ -61,13 +115,16 @@ export default function Products() {
       size: "",
       material: "",
       customizable: false,
-      image: "",
+      images: [],
       description: "",
     });
-
+    setEditTarget(null);
     setShowAddForm(false);
   };
 
+  /* =====================
+     DELETE PRODUCT
+  ====================== */
   const confirmDelete = () => {
     setProducts(products.filter((p) => p.id !== deleteTarget));
     setDeleteTarget(null);
@@ -80,17 +137,22 @@ export default function Products() {
         <h1 className="text-2xl font-semibold text-gray-800">Products</h1>
 
         <button
-          onClick={() => setShowAddForm(true)}
+          onClick={() => {
+            resetForm();
+            setShowAddForm(true);
+          }}
           className="flex items-center gap-2 bg-[#7B1E3A] text-white px-4 py-2 rounded-lg hover:bg-[#65182F]"
         >
           <Plus size={18} /> Add Product
         </button>
       </div>
 
-      {/* ADD PRODUCT FORM */}
+      {/* ADD / EDIT FORM */}
       {showAddForm && (
         <div className="bg-white p-6 rounded-xl shadow-sm mb-6 border">
-          <h2 className="font-semibold mb-4 text-[#7B1E3A]">Add New Product</h2>
+          <h2 className="font-semibold mb-4 text-[#7B1E3A]">
+            {editTarget ? "Edit Product" : "Add New Product"}
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
@@ -112,37 +174,49 @@ export default function Products() {
             ))}
           </div>
 
-          {/* IMAGE */}
+          {/* IMAGE UPLOAD */}
           <div className="mt-4">
             <label className="text-sm font-medium block mb-2">
-              Product Image
+              Product Images
             </label>
 
-            <div className="flex items-center gap-4">
-              <label className="flex items-center gap-2 px-4 py-2 border rounded cursor-pointer hover:bg-[#F5E6EA]">
-                <Image size={18} />
-                Upload Image
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleImageUpload}
-                />
-              </label>
+            <label className="flex items-center gap-2 px-4 py-2 border rounded cursor-pointer w-fit hover:bg-[#F5E6EA]">
+              <Image size={18} />
+              Upload Images
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={handleImageUpload}
+              />
+            </label>
 
-              {form.image && (
-                <img
-                  src={form.image}
-                  alt="Preview"
-                  className="w-16 h-16 object-cover rounded border"
-                />
-              )}
-            </div>
+            {form.images.length > 0 && (
+              <div className="flex gap-3 mt-3 flex-wrap">
+                {form.images.map((img, index) => (
+                  <div key={index} className="relative w-16 h-16">
+                    <img
+                      src={img}
+                      alt="Preview"
+                      className="w-16 h-16 object-cover rounded border"
+                    />
+
+                    <button
+                      onClick={() => removeImage(index)}
+                      className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full p-1 hover:bg-red-700"
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <textarea
             placeholder="Short product description"
-            className="border rounded px-3 py-2 w-full mt-4 focus:ring-2 focus:ring-[#7B1E3A]"
+            className="border rounded px-3 py-2 w-full mt-4"
             rows="3"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
@@ -160,17 +234,14 @@ export default function Products() {
           </div>
 
           <div className="flex justify-end gap-3 mt-6">
-            <button
-              onClick={() => setShowAddForm(false)}
-              className="px-4 py-2 border rounded hover:bg-gray-50"
-            >
+            <button onClick={resetForm} className="px-4 py-2 border rounded">
               Cancel
             </button>
             <button
-              onClick={handleAddProduct}
-              className="px-4 py-2 bg-[#7B1E3A] text-white rounded hover:bg-[#65182F]"
+              onClick={handleAddOrUpdateProduct}
+              className="px-4 py-2 bg-[#7B1E3A] text-white rounded"
             >
-              Save Product
+              {editTarget ? "Update Product" : "Save Product"}
             </button>
           </div>
         </div>
@@ -194,9 +265,9 @@ export default function Products() {
             {products.map((product) => (
               <tr key={product.id} className="border-t hover:bg-gray-50">
                 <td className="p-4 flex items-center gap-3">
-                  {product.image ? (
+                  {product.images.length > 0 ? (
                     <img
-                      src={product.image}
+                      src={product.images[0]}
                       alt={product.name}
                       className="w-12 h-12 object-cover rounded"
                     />
@@ -216,19 +287,17 @@ export default function Products() {
 
                 <td className="p-4">{product.category}</td>
                 <td className="p-4">LKR {product.price}</td>
-                <td className="p-4">
-                  <span
-                    className={`px-2 py-1 rounded text-xs ${
-                      product.stock > 5
-                        ? "bg-green-100 text-green-700"
-                        : "bg-red-100 text-red-700"
-                    }`}
-                  >
-                    {product.stock}
-                  </span>
-                </td>
+                <td className="p-4">{product.stock}</td>
                 <td className="p-4">{product.customizable ? "Yes" : "No"}</td>
-                <td className="p-4 text-right">
+
+                <td className="p-4 text-right flex justify-end gap-3">
+                  <button
+                    onClick={() => handleEdit(product)}
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    <Pencil size={18} />
+                  </button>
+
                   <button
                     onClick={() => setDeleteTarget(product.id)}
                     className="text-[#7B1E3A] hover:text-red-700"

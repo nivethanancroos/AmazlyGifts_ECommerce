@@ -1,11 +1,14 @@
 import "./CreateAccount.css";
 import giftImage from "../../assets/images/gift.jpg";
+import bgImage from "../../assets/images/gift.jpg";
 
 function CreateAccount() {
   return (
-    <div className="create-wrapper">
+    <div
+      className="create-wrapper success-overlay"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="create-container">
-
         {/* LEFT IMAGE GRID */}
         <div className="left-grid">
           <img src={giftImage} alt="gift" />
@@ -21,7 +24,6 @@ function CreateAccount() {
           <h1>Create Account</h1>
 
           <div className="social-row">
-            
             {/* GOOGLE BUTTON */}
             <button className="social-btn google">
               <img
@@ -39,7 +41,6 @@ function CreateAccount() {
               />
               Sign up with Facebook
             </button>
-
           </div>
 
           <div className="or-text">-OR-</div>
@@ -59,7 +60,6 @@ function CreateAccount() {
 
             <div className="input-group password">
               <input type="password" placeholder="Password" />
-             
             </div>
 
             <button className="create-btn">Create Account</button>
@@ -69,7 +69,6 @@ function CreateAccount() {
             Already have an account? <a href="/">Log in</a>
           </p>
         </div>
-
       </div>
     </div>
   );

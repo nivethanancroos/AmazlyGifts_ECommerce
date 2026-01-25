@@ -114,7 +114,7 @@ export default function Settings() {
           </div>
         </div>
 
-        {/* Security Settings */}
+        {/* Security Settings
         <div className="bg-white rounded-xl shadow p-6">
           <h2 className="text-lg font-semibold mb-4 text-[#7b1e2b]">
             Security
@@ -134,7 +134,7 @@ export default function Settings() {
               className={inputClass}
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Action Button */}
         <div className="flex justify-end">
