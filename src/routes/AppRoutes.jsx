@@ -15,10 +15,13 @@ import OrderDetails from "../pages/OrderDetails/OrderDetails";
 import Products from "../pages/Products/Products";
 import ProductDetails from "../pages/Products/ProductDetails";
 
+import AdminRoutes from "../admin/AdminRoutes";
+
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route index element={<Login />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/create-account" element={<CreateAccount />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/verify-otp" element={<Verification />} />
@@ -36,6 +39,8 @@ function AppRoutes() {
       <Route path="/order-details/:orderId" element={<OrderDetails />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:id" element={<ProductDetails />} />
+
+      <Route path="/admin/*" element={<AdminRoutes />} />
     </Routes>
   );
 }
